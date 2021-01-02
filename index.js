@@ -93,9 +93,12 @@ class Action {
         }
 
         console.log(`Package Name: ${this.packageName}`)
-
+        console.log(`Checking : ${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json`)
+        
         https.get(`${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json`, res => {
             let body = ""
+        
+            console.log(`Checking : ${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json => {res.statusCode}`)
 
             if (res.statusCode == 404)
                 this._pushPackage(this.version, this.packageName)
