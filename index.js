@@ -46,7 +46,7 @@ class Action {
     }
 
     _pushPackage(version, name) {
-        console.log(`✨ found new version (${version}) of ${name}`)
+        console.log(`found new version (${version}) of ${name}`)
 
         if (!this.nugetKey) {
             console.log("##[warning]😢 NUGET_KEY not given")
@@ -98,7 +98,7 @@ class Action {
         https.get(`${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json`, res => {
             let body = ""
         
-            console.log(`Checking : ${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json => {res.statusCode}`)
+            console.log(`Checking : ${this.nugetSource}/v3-flatcontainer/${this.packageName}/index.json => ${res.statusCode}`)
 
             if (res.statusCode == 404)
                 this._pushPackage(this.version, this.packageName)
